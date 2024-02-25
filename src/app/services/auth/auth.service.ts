@@ -1,28 +1,78 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject, of } from 'rxjs';
-import { User } from '../../interfaces/auth';
+import { Observable, Subject, catchError, from, of, throwError } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  // private jsonUrl = 'http://localhost:3000';
-  // constructor(private http: HttpClient) {}
-  // registerUser(userDetails: User) {
-  //   return this.http.post(`${this.jsonUrl}/users`, userDetails);
-  // }
-  // getUserByEmail(email: string): Observable<User[]> {
-  //   return this.http.get<User[]>(`${this.jsonUrl}/users?email=${email}`);
-  // }
+  constructor(private auth: AngularFireAuth) {}
 
-  constructor() {}
+  // register
+
+  signUp(params: SignUp): Observable<any> {
+    return from(
+      this.auth.createUserWithEmailAndPassword(params.email, params.password)
+    ).pipe(
+      catchError((error: FirebaseError) =>
+        throwError(() => new Error(this.translateFirebaseErrorMessage(error)))
+      )
+    );
+  }
+
+  //login
+
   signIn(params: SignIn): Observable<any> {
-    return of({});
+    return from(
+      this.auth.signInWithEmailAndPassword(params.email, params.password)
+    ).pipe(
+      catchError((error: FirebaseError) =>
+        throwError(() => new Error(this.translateFirebaseErrorMessage(error)))
+      )
+    );
+  }
+
+  // password recovery
+
+  recoverPassword(email: string): Observable<void> {
+    return from(this.auth.sendPasswordResetEmail(email)).pipe(
+      catchError((error: FirebaseError) =>
+        throwError(() => new Error(this.translateFirebaseErrorMessage(error)))
+      )
+    );
+  }
+
+  // error messages
+
+  private translateFirebaseErrorMessage({ code, message }: FirebaseError) {
+    if (code === 'auth/user-not-found') {
+      return 'User not found.';
+    }
+    if (code === 'auth/wrong-password') {
+      return 'Wrong password';
+    }
+    if (code === 'auth/email-already-in-use') {
+      return 'email already exist';
+    }
+    if (code === 'auth/invalid-credential') {
+      return 'invalid Email or Password';
+    }
+    return message;
   }
 }
+
+// reusable types to not define everytime
+
 type SignIn = {
+  email: string;
+  password: string;
+};
+
+type FirebaseError = {
+  code: string;
+  message: string;
+};
+type SignUp = {
   email: string;
   password: string;
 };
