@@ -1,0 +1,32 @@
+<div class="container">
+  <app-register></app-register>
+  <div class="separator">
+    <h1>or</h1>
+  </div>
+  <div class="right_side_login">
+    <h1>login</h1>
+    <p>Please login to access your NJAL Look Book by using your e-mail address and password.</p>
+    <form [formGroup]="loginForm" (ngSubmit)="login()" (keydown.enter)="login()">
+      <div class="mb-3">
+        <label for="email" class="form-label"></label>
+        <input type="text" class="form-control" id="email" formControlName="email" placeholder="EMAIL" name="email">
+      </div>
+      <small class="validation" *ngIf="email.invalid && (email.dirty || email.touched)">
+        <div *ngIf="email.errors?.['required']">Email is required</div>
+        <div *ngIf="email.errors?.['email']">Email should be valid</div>
+      </small>
+      <div class="mb-3">
+        <label for="password" class="form-label"></label>
+        <input type="password" class="form-control" id="password" placeholder="PASSWORD" formControlName="password"
+          name="password">
+      </div>
+      <small class="validation" *ngIf="password.invalid && (password.dirty || password.touched)">
+        <div *ngIf="password.errors?.['required']">Password is required</div>
+      </small>
+    </form>
+    <button class="login_btn" [disabled]="loginForm.invalid" type="submit" (click)="login()">login</button>
+    <a class="password_recovery">forgotten password?</a>
+  </div>
+</div>
+<div class="text_logo"><a routerLink="/"><img src="/assets/images/svg/text-logo.svg" alt=""></a></div>
+<div class="aside-overlay" [class.show-overlay]="isAsideNavOpen" (click)="clearOverlay()"></div>

@@ -1,0 +1,59 @@
+<div class="left_side_register">
+  <h1>register</h1>
+  <p>If you are a designer, and have a minimum of one collection ready to present on NJAL, please register your Look
+    Book at
+    no cost below.</p>
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <div class="mb-3">
+      <label for="labelName" class="form-label"></label>
+      <input type="text" class="form-control" id="reg_labelName" placeholder="LABEL NAME" formControlName="labelName"
+        name="labelName">
+    </div>
+    <small class="validation" *ngIf="labelName.invalid && (labelName.dirty || labelName.touched)">
+      <div *ngIf="labelName.errors?.['required']">Label Name is required</div>
+      <div *ngIf="labelName.errors?.['pattern']">Label Name should be valid</div>
+    </small>
+    <div class="mb-3">
+      <label for="email" class="form-label"></label>
+      <input type="text" class="form-control" id="reg_email" placeholder="EMAIL ADDRESS" formControlName="email"
+        name="email">
+    </div>
+    <small class="validation" *ngIf="email.invalid && (email.dirty || email.touched)">
+      <div *ngIf="email.errors?.['required']">Email is required</div>
+      <div *ngIf="email.errors?.['pattern']">Please type valid Email</div>
+    </small>
+    <div class="mb-3">
+      <label for="password" class="form-label"></label>
+      <input type="password" class="form-control" id="reg_password" placeholder="NEW PASSWORD"
+        formControlName="password" name="password">
+    </div>
+    <small class="validation" *ngIf="password.invalid && (password.dirty || password.touched)">
+      <div *ngIf="password.errors?.['required']">Password is required</div>
+    </small>
+    <div class="mb-3">
+      <label for="confirmPassword" class="form-label"></label>
+      <input type="password" class="form-control" id="reg_confirmPassword" placeholder="CONFIRM NEW PASSWORD"
+        formControlName="confirmPassword" name="confirmPassword">
+    </div>
+    <small class="validation" *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)">
+      <div *ngIf="confirmPassword.errors?.['required']">Confirm the password
+      </div>
+    </small>
+    <small class="validation"
+      *ngIf="registerForm.errors?.['passwordMissMatch'] && confirmPassword.valid && password.valid">
+      Password should match
+    </small>
+    <div class="terms">
+      <input type="checkbox" id="termsCheckbox" name="termsCheckbox" formControlName="termsCheckbox">
+      <label for="termsCheckbox">I agree to the <a routerLink="/terms">Terms & Conditions</a> of
+        Use</label>
+    </div>
+    <small class="validation" *ngIf="registerForm.errors?.['checkboxNotChecked']">
+    </small>
+    <div class="captcha">
+      <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" fromControlName="recaptcha">
+      </ngx-recaptcha2>
+    </div>
+    <button class="register_btn" [disabled]="registerForm.invalid" type="submit">register</button>
+  </form>
+</div>

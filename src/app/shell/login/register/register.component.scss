@@ -1,0 +1,145 @@
+* {
+  font-family: knockout;
+}
+.left_side_register {
+  width: 377px;
+}
+
+.left_side_register h1 {
+  font-weight: lighter;
+  font-size: 55px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.left_side_register p {
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 100;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 330px;
+  height: 15px;
+  margin: 0 0 10px 0;
+  font-size: 24px;
+  font-family: sans-serif;
+  padding: 12px;
+}
+
+input::placeholder {
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  color: #d7d4da;
+}
+
+.register_btn {
+  width: 330px;
+  height: 43px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  background: none;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #000;
+  transition: 0.5s ease-in-out;
+  color: white;
+}
+
+.password_recovery {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+  margin-top: 50px;
+}
+.password_recovery:hover {
+  text-decoration: underline;
+}
+.terms {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#termsCheckbox {
+  display: flex;
+  margin-top: 10px;
+  cursor: pointer;
+}
+/* Hide the default checkbox */
+.terms input[type="checkbox"] {
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+}
+.terms input[type="checkbox"]:checked {
+  background-color: black;
+  border-color: black;
+}
+
+.terms input[type="checkbox"]::before {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+}
+
+.terms input[type="checkbox"]:checked::before {
+  visibility: visible;
+}
+.terms label {
+  display: flex;
+  height: 20px;
+  align-items: center;
+  padding-left: 10px;
+  font-size: 16px;
+  font-family: sans-serif;
+}
+.terms label a {
+  text-decoration: none;
+  color: black;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  margin: 0px 5px 0px 5px;
+}
+.terms label a:hover {
+  text-decoration: underline;
+}
+.captcha {
+  margin-bottom: 10px;
+}
+
+.validation div,
+small {
+  color: black;
+  font-size: 14px;
+  font-family: sans-serif;
+}
+
+input:focus {
+  outline-color: black !important;
+}
+@media screen and (max-width: 927px) {
+  .left_side_register h1 {
+    font-size: 40px;
+  }
+}
