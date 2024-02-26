@@ -1,16 +1,16 @@
-<div class="container">
-  <app-register></app-register>
-  <div class="separator">
-    <h1>or</h1>
-  </div>
-  <div class="right_side_login">
-    <h1>login</h1>
-    <p>Please login to access your NJAL Look Book by using your e-mail address and password.</p>
-    <main>
+<main>
+  <div class="container">
+    <app-register></app-register>
+    <div class="separator">
+      <h1>or</h1>
+    </div>
+    <div class="right_side_login">
+      <h1>login</h1>
+      <p>Please login to access your NJAL Look Book by using your e-mail address and password.</p>
       <form [formGroup]="form">
         <mat-form-field>
-          <mat-label>Email</mat-label>
-          <input type="email" matInput placeholder="Ex: pat@example.com" formControlName="email">
+          <mat-label>EMAIL</mat-label>
+          <input type="email" matInput formControlName="email">
           <mat-error *ngIf="form.get('email')!.hasError('required')">
             Email is required
           </mat-error>
@@ -19,8 +19,12 @@
           </mat-error>
         </mat-form-field>
         <mat-form-field>
-          <mat-label>Password</mat-label>
-          <input type="password" matInput placeholder="Password" formControlName="password">
+          <mat-label>PASSWORD</mat-label>
+          <input [type]="hide ? 'password' : 'text'" matInput formControlName="password">
+          <!-- <mat-icon matSuffix (click)="visibility()">
+            {{hide?'visibility_off':'visibility'}}
+          </mat-icon> -->
+
           <mat-error *ngIf="form.get('password')!.hasError('required')">
             Password is required
           </mat-error>
@@ -31,8 +35,6 @@
             {{errorMessage}}
           </mat-error>
         </mat-form-field>
-        <div class='aligned-to-right'>
-        </div>
         <button mat-raised-button [disabled]="!form.valid" (click)="login()" *ngIf="!isLoggingIn" test-id="login-button"
           class="login_btn">
           LOGIN
@@ -41,11 +43,11 @@
           <mat-spinner color="accent" diameter="20"></mat-spinner>
         </button>
       </form>
-    </main>
-    <a (click)="recoverPassword()" class="password_recovery">
-      forgotten password?
-    </a>
+      <a (click)="recoverPassword()" class="password_recovery">
+        forgotten password?
+      </a>
+    </div>
   </div>
-</div>
-<div class="text_logo"><a routerLink="/"><img src="/assets/images/svg/text-logo.svg" alt=""></a></div>
-<div class="aside-overlay" [class.show-overlay]="isAsideNavOpen" (click)="clearOverlay()"></div>
+  <div class="text_logo"><a routerLink="/"><img src="/assets/images/svg/text-logo.svg" alt=""></a></div>
+  <div class="aside-overlay" [class.show-overlay]="isAsideNavOpen" (click)="clearOverlay()"></div>
+</main>

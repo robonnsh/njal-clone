@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { Validators, FormBuilder } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
-import { User } from '../../../interfaces/auth';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from '../../../services/auth/auth.service';
-import { checkbx } from '../../../directives/checkbox.directive';
 import { passwordMatchValidator } from '../../../directives/password-match.directive';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -12,64 +14,75 @@ import { passwordMatchValidator } from '../../../directives/password-match.direc
   styleUrl: './register.component.scss',
 })
 export class RegisterComponent {
-  // siteKey: string;
-  registerForm = this.formBuilder.group(
-    {
-      labelName: [
-        '',
-        [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)],
-      ],
-      email: [
-        '',
-        [
-          Validators.required,
-          Validators.email,
-          Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
-        ],
-      ],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
-      termsCheckbox: ['', checkbx],
-    },
-    {
-      validators: passwordMatchValidator,
-    }
-  );
-
+  form!: FormGroup;
+  isLoggingIn = false;
+  isRecoveringPassword = false;
+  isRegistering = false;
+  emailAlreadyInUse = false;
+  errorMessage: string = '';
+  siteKey: string;
+  passwordsMatch: boolean = false;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
   constructor(
+    private authenticationService: AuthService,
     private formBuilder: FormBuilder,
-    private authService: AuthService,
-    private toast: ToastrService
+    private snackBar: MatSnackBar
   ) {
-    // this.siteKey = '6LcTm20pAAAAAAMfcVcGsOAfuMxaZcfjfvQWmyCT';
+    this.siteKey = '6LcTm20pAAAAAAMfcVcGsOAfuMxaZcfjfvQWmyCT';
+  }
+  ngOnInit(): void {
+    this.form = this.formBuilder.group(
+      {
+        labelName: [
+          '',
+          [
+            Validators.required,
+            Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/),
+          ],
+        ],
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6)]],
+        confirmPassword: ['', Validators.required],
+        termsCheckbox: [false, Validators.requiredTrue],
+      },
+      { validators: passwordMatchValidator }
+    );
   }
 
-  get labelName() {
-    return this.registerForm.controls['labelName'];
-  }
+  register() {
+    if (this.form.invalid) {
+      return;
+    }
 
-  get email() {
-    return this.registerForm.controls['email'];
-  }
+    const email = this.form.value.email;
+    const password = this.form.value.password;
 
-  get password() {
-    return this.registerForm.controls['password'];
+    this.authenticationService
+      .signUp({
+        email: email,
+        password: password,
+      })
+      .subscribe({
+        next: () => {
+          this.form.reset();
+          this.isRegistering = false;
+          this.emailAlreadyInUse = false;
+          this.errorMessage = '';
+          this.snackBar.open('Registration successful', 'OK', {
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+            duration: 3000,
+          });
+        },
+        error: (error) => {
+          this.isLoggingIn = false;
+          this.snackBar.open(error.message, 'OK', {
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+            duration: 3000,
+          });
+        },
+      });
   }
-
-  get confirmPassword() {
-    return this.registerForm.controls['confirmPassword'];
-  }
-
-  get termsCheckbox() {
-    return this.registerForm.controls['termsCheckbox'];
-  }
-
-  // submitDetails() {
-  //   const postData = { ...this.registerForm.value };
-  //   delete postData.confirmPassword;
-  //   this.authService.registerUser(postData as User).subscribe(() => {
-  //     this.registerForm.reset();
-  //     this.toast.success('Register successfully');
-  //   });
-  // }
 }

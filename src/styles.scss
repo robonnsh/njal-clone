@@ -45,6 +45,10 @@ $njal-theme: mat.define-light-theme(
   font-family: Avenir-regular;
   src: url(assets/fonts/AvenirNextLTPro-Regular.otf) format("truetype");
 }
+@font-face {
+  font-family: Avenir-italic;
+  src: url(assets/fonts/AvenirNextLTPro-It.otf) format("truetype");
+}
 
 * {
   margin: 0;
@@ -54,7 +58,7 @@ $njal-theme: mat.define-light-theme(
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Avenir-regular;
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;

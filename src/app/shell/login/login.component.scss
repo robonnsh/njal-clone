@@ -57,8 +57,8 @@
 }
 
 .right_side_login p {
-  font-family: sans-serif;
-  font-size: 14px;
+  font-family: Avenir-regular;
+  font-size: 16px;
   font-weight: 100;
   letter-spacing: 0.5px;
   margin-bottom: 10px;
@@ -144,11 +144,6 @@ mat-label {
   width: 320px;
 }
 
-.validation div {
-  color: black;
-  font-size: 14px;
-  font-family: sans-serif;
-}
 @media screen and (max-width: 1060px) {
   .separator {
     margin: 0 50px 0 50px;

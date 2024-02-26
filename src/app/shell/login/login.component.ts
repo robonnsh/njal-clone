@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
-import { ToastrService } from 'ngx-toastr';
 import {
   MatSnackBar,
   MatSnackBarHorizontalPosition,
@@ -19,7 +18,7 @@ export class LoginComponent {
   isRecoveringPassword = false;
   isRegistering = false;
   errorMessage: string = '';
-  hide: boolean = true;
+  hide = true;
   showLoginComponents: boolean = true;
   isAsideNavOpen: boolean = false;
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
@@ -74,6 +73,10 @@ export class LoginComponent {
         this.isRecoveringPassword = false;
       },
     });
+  }
+
+  visibility() {
+    this.hide = !this.hide;
   }
 
   onToggleAsideNav() {

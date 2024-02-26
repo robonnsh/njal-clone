@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject, catchError, from, of, throwError } from 'rxjs';
+import { Observable, catchError, from, tap, throwError } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private auth: AngularFireAuth) {}
+  constructor(
+    private auth: AngularFireAuth,
+    private firestore: AngularFirestore
+  ) {}
 
   // register
 
@@ -19,6 +23,25 @@ export class AuthService {
       )
     );
   }
+
+  // signUp(params: SignUp): Observable<any> {
+  //   const { email, password, labelName } = params;
+  //   return from(
+  //     this.auth
+  //       .createUserWithEmailAndPassword(email, password)
+  //       .then((credential) => {
+  //         // User successfully created, now store additional information in the database
+  //         return this.firestore
+  //           .collection('users')
+  //           .doc(credential.user?.uid)
+  //           .set({ labelName });
+  //       })
+  //   ).pipe(
+  //     catchError((error: FirebaseError) =>
+  //       throwError(() => new Error(this.translateFirebaseErrorMessage(error)))
+  //     )
+  //   );
+  // }
 
   //login
 

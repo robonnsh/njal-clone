@@ -13,26 +13,67 @@
   text-transform: uppercase;
 }
 .left_side_register p {
-  font-family: sans-serif;
-  font-size: 14px;
+  font-family: Avenir-regular;
+  font-size: 16px;
   font-weight: 100;
   letter-spacing: 0.5px;
   margin-bottom: 10px;
 }
 
-input {
-  width: 330px;
-  height: 15px;
-  margin: 0 0 10px 0;
-  font-size: 24px;
-  font-family: sans-serif;
-  padding: 12px;
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: Avenir-regular;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+
+  button,
+  mat-form-field {
+    width: -webkit-fill-available;
+  }
+  mat-form-field {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+}
+mat-error,
+mat-label {
+  font-family: Avenir-regular;
+  font-size: 14px;
 }
 
-input::placeholder {
-  font-size: 18px;
-  letter-spacing: 0.5px;
-  color: #d7d4da;
+::ng-deep .mdc-text-field--filled .mdc-line-ripple::after {
+  border-bottom: 2px solid black !important;
+}
+::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: black !important;
+}
+::ng-deep .mdc-text-field .mdc-text-field__input {
+  caret-color: black !important;
+}
+
+mat-form-field:last-of-type ::ng-deep .mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+::ng-deep .mat-mdc-form-field-error-wrapper {
+  padding: 0 !important;
+}
+::ng-deep
+  .mat-mdc-checkbox.mat-accent
+  .mdc-checkbox--selected
+  ~ .mdc-checkbox__ripple {
+  background: black !important;
+}
+
+::ng-deep
+  .mat-mdc-checkbox.mat-accent
+  .mdc-checkbox
+  .mdc-checkbox__native-control:enabled:checked
+  ~ .mdc-checkbox__background {
+  border-color: transparent !important;
+  background-color: black !important;
 }
 
 .register_btn {
@@ -44,99 +85,57 @@ input::placeholder {
   text-transform: uppercase;
   background: none;
   cursor: pointer;
+  background-color: white !important;
+  border: 1px solid black;
+  border-radius: none;
+  box-shadow: none;
 }
-button:hover {
-  background-color: #000;
-  transition: 0.5s ease-in-out;
+.register_btn:hover {
+  background-color: #000 !important;
+  transition: 0.3s ease-in-out;
   color: white;
+  box-shadow: none;
 }
 
-.password_recovery {
-  display: block;
-  font-size: 14px;
-  font-weight: bold;
-  font-family: sans-serif;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: black;
-  margin-top: 50px;
-}
-.password_recovery:hover {
-  text-decoration: underline;
-}
 .terms {
-  display: flex;
   width: 100%;
+  display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding-bottom: 20px;
 }
 
-#termsCheckbox {
-  display: flex;
-  margin-top: 10px;
-  cursor: pointer;
-}
-/* Hide the default checkbox */
-.terms input[type="checkbox"] {
-  appearance: none;
-  width: 10px;
-  height: 10px;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  position: relative;
-}
-.terms input[type="checkbox"]:checked {
-  background-color: black;
-  border-color: black;
-}
-
-.terms input[type="checkbox"]::before {
-  content: "";
-  display: block;
-  width: 6px;
-  height: 6px;
-  background-color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  visibility: hidden;
-}
-
-.terms input[type="checkbox"]:checked::before {
-  visibility: visible;
-}
-.terms label {
-  display: flex;
-  height: 20px;
-  align-items: center;
-  padding-left: 10px;
+.checkbox span {
+  font-family: Avenir-regular;
   font-size: 16px;
-  font-family: sans-serif;
+  cursor: default;
 }
-.terms label a {
+.checkbox a {
   text-decoration: none;
   color: black;
-  font-family: sans-serif;
+  font-family: Avenir-italic;
   letter-spacing: 1px;
   margin: 0px 5px 0px 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
-.terms label a:hover {
+.checkbox a:hover {
   text-decoration: underline;
 }
 .captcha {
-  margin-bottom: 10px;
+  padding-bottom: 20px;
 }
 
-.validation div,
-small {
-  color: black;
-  font-size: 14px;
-  font-family: sans-serif;
+.password-match {
+  width: 100%;
+  padding-bottom: 20px;
+  font-size: 16px !important;
+  margin: 0 !important;
 }
-
-input:focus {
-  outline-color: black !important;
+.password-match span {
+  font-family: Avenir-regular;
+  font-size: 16px;
+  font-weight: bold;
 }
 @media screen and (max-width: 927px) {
   .left_side_register h1 {
