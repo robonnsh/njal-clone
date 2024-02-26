@@ -55,7 +55,7 @@ export class AuthService {
       return 'email already exist';
     }
     if (code === 'auth/invalid-credential') {
-      return 'invalid Email or Password';
+      return 'Unrecognized username or password.';
     }
     return message;
   }
