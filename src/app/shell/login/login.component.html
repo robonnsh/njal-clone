@@ -6,26 +6,45 @@
   <div class="right_side_login">
     <h1>login</h1>
     <p>Please login to access your NJAL Look Book by using your e-mail address and password.</p>
-    <form [formGroup]="loginForm" (ngSubmit)="login()" (keydown.enter)="login()">
-      <div class="mb-3">
-        <label for="email" class="form-label"></label>
-        <input type="text" class="form-control" id="email" formControlName="email" placeholder="EMAIL" name="email">
-      </div>
-      <small class="validation" *ngIf="email.invalid && (email.dirty || email.touched)">
-        <div *ngIf="email.errors?.['required']">Email is required</div>
-        <div *ngIf="email.errors?.['email']">Email should be valid</div>
-      </small>
-      <div class="mb-3">
-        <label for="password" class="form-label"></label>
-        <input type="password" class="form-control" id="password" placeholder="PASSWORD" formControlName="password"
-          name="password">
-      </div>
-      <small class="validation" *ngIf="password.invalid && (password.dirty || password.touched)">
-        <div *ngIf="password.errors?.['required']">Password is required</div>
-      </small>
-    </form>
-    <button class="login_btn" [disabled]="loginForm.invalid" type="submit" (click)="login()">login</button>
-    <a class="password_recovery">forgotten password?</a>
+    <main>
+      <form [formGroup]="form">
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input type="email" matInput placeholder="Ex: pat@example.com" formControlName="email">
+          <mat-error *ngIf="form.get('email')!.hasError('required')">
+            Email is required
+          </mat-error>
+          <mat-error *ngIf="form.get('email')!.hasError('email')">
+            Email is invalid
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input type="password" matInput placeholder="Password" formControlName="password">
+          <mat-error *ngIf="form.get('password')!.hasError('required')">
+            Password is required
+          </mat-error>
+          <mat-error *ngIf="form.get('password')!.hasError('minlength')">
+            Password must be at least 6 characters long
+          </mat-error>
+          <mat-error *ngIf="errorMessage">
+            {{errorMessage}}
+          </mat-error>
+        </mat-form-field>
+        <div class='aligned-to-right'>
+        </div>
+        <button mat-raised-button [disabled]="!form.valid" (click)="login()" *ngIf="!isLoggingIn" test-id="login-button"
+          class="login_btn">
+          LOGIN
+        </button>
+        <button mat-raised-button class="button-loader login_btn" *ngIf="isLoggingIn">
+          <mat-spinner color="accent" diameter="20"></mat-spinner>
+        </button>
+      </form>
+    </main>
+    <a (click)="recoverPassword()" class="password_recovery">
+      forgotten password?
+    </a>
   </div>
 </div>
 <div class="text_logo"><a routerLink="/"><img src="/assets/images/svg/text-logo.svg" alt=""></a></div>
