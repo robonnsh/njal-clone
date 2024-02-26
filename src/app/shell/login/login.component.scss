@@ -63,22 +63,39 @@
   letter-spacing: 0.5px;
   margin-bottom: 10px;
 }
-
-input {
-  width: 330px;
-  height: 15px;
-  margin: 0 0 10px 0;
-  font-size: 24px;
-  font-family: sans-serif;
-  padding: 12px;
-}
-
-input::placeholder {
-  font-size: 18px;
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: Avenir-regular;
+  font-size: 22px;
   letter-spacing: 0.5px;
-  color: #d7d4da;
+
+  button,
+  mat-form-field {
+    width: -webkit-fill-available;
+  }
+  mat-form-field {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+}
+mat-error,
+mat-label {
+  font-family: Avenir-regular;
+  font-size: 14px;
 }
 
+::ng-deep .mdc-text-field--filled .mdc-line-ripple::after {
+  border-bottom: 2px solid black !important;
+}
+::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: black !important;
+}
+::ng-deep .mdc-text-field .mdc-text-field__input {
+  caret-color: black !important;
+}
 .login_btn {
   width: 330px;
   height: 43px;
@@ -88,11 +105,16 @@ input::placeholder {
   text-transform: uppercase;
   background: none;
   cursor: pointer;
+  background-color: white !important;
+  border: 1px solid black;
+  border-radius: none;
+  box-shadow: none;
 }
-button:hover {
-  background-color: #000;
-  transition: 0.5s ease-in-out;
+.login_btn:hover {
+  background-color: #000 !important;
+  transition: 0.3s ease-in-out;
   color: white;
+  box-shadow: none;
 }
 
 .password_recovery {
