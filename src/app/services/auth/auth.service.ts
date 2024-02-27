@@ -1,47 +1,47 @@
 import { Injectable } from '@angular/core';
-import { Observable, catchError, from, tap, throwError } from 'rxjs';
+import {
+  Observable,
+  catchError,
+  from,
+  map,
+  of,
+  switchMap,
+  tap,
+  throwError,
+} from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-
+import { GoogleAuthProvider } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   constructor(
     private auth: AngularFireAuth,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    private router: Router
   ) {}
 
-  // register
+  // register - save name and email in collections
 
   signUp(params: SignUp): Observable<any> {
+    const { email, password, labelName } = params;
     return from(
-      this.auth.createUserWithEmailAndPassword(params.email, params.password)
+      this.auth
+        .createUserWithEmailAndPassword(email, password)
+        .then((credential) => {
+          return this.firestore
+            .collection('users')
+            .doc(credential.user?.uid)
+            .set({ labelName, email });
+        })
     ).pipe(
       catchError((error: FirebaseError) =>
         throwError(() => new Error(this.translateFirebaseErrorMessage(error)))
       )
     );
   }
-
-  // signUp(params: SignUp): Observable<any> {
-  //   const { email, password, labelName } = params;
-  //   return from(
-  //     this.auth
-  //       .createUserWithEmailAndPassword(email, password)
-  //       .then((credential) => {
-  //         // User successfully created, now store additional information in the database
-  //         return this.firestore
-  //           .collection('users')
-  //           .doc(credential.user?.uid)
-  //           .set({ labelName });
-  //       })
-  //   ).pipe(
-  //     catchError((error: FirebaseError) =>
-  //       throwError(() => new Error(this.translateFirebaseErrorMessage(error)))
-  //     )
-  //   );
-  // }
 
   //login
 
@@ -55,14 +55,29 @@ export class AuthService {
     );
   }
 
-  // password recovery
+  // login with google
+  // googleSignIn() {
+  //   return this.auth.signInWithPopup(new GoogleAuthProvider());
+  // }
 
-  recoverPassword(email: string): Observable<void> {
-    return from(this.auth.sendPasswordResetEmail(email)).pipe(
-      catchError((error: FirebaseError) =>
-        throwError(() => new Error(this.translateFirebaseErrorMessage(error)))
-      )
-    );
+  // password recovery - check if email exist
+
+  recoverPassword(email: string): Observable<any> {
+    return this.firestore
+      .collection('users', (ref) => ref.where('email', '==', email))
+      .valueChanges({ idField: 'id' })
+      .pipe(
+        switchMap((users) => {
+          if (users.length > 0) {
+            return from(this.auth.sendPasswordResetEmail(email));
+          } else {
+            return throwError(() => new Error('Email not found.'));
+          }
+        }),
+        catchError((error: FirebaseError) =>
+          throwError(() => new Error(this.translateFirebaseErrorMessage(error)))
+        )
+      );
   }
 
   // error messages
@@ -75,16 +90,23 @@ export class AuthService {
       return 'Wrong password';
     }
     if (code === 'auth/email-already-in-use') {
-      return 'email already exist';
+      return 'Email already exist';
     }
     if (code === 'auth/invalid-credential') {
       return 'Unrecognized username or password.';
     }
+    if (code === 'auth/missing-email') {
+      return 'Please enter valid email';
+    }
+    if (code === 'auth/invalid-email') {
+      return 'Please enter valid email';
+    }
+
     return message;
   }
 }
 
-// reusable types to not define everytime
+// reusable types
 
 type SignIn = {
   email: string;
@@ -98,4 +120,5 @@ type FirebaseError = {
 type SignUp = {
   email: string;
   password: string;
+  labelName: string;
 };
