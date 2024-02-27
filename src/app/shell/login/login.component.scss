@@ -1,6 +1,3 @@
-* {
-  font-family: knockout;
-}
 .aside-overlay {
   position: fixed;
   top: 0;
@@ -38,6 +35,7 @@
 }
 
 .separator h1 {
+  font-family: knockout;
   position: absolute;
   top: 35%;
   left: -45px;
@@ -49,6 +47,7 @@
 }
 
 .right_side_login h1 {
+  font-family: knockout;
   font-weight: lighter;
   font-size: 55px;
   letter-spacing: 1px;

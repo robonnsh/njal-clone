@@ -2,11 +2,7 @@ import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
-import {
-  MatSnackBar,
-  MatSnackBarHorizontalPosition,
-  MatSnackBarVerticalPosition,
-} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,8 +17,7 @@ export class LoginComponent {
   hide = true;
   showLoginComponents: boolean = true;
   isAsideNavOpen: boolean = false;
-  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -41,6 +36,8 @@ export class LoginComponent {
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
+
+  // login
   login() {
     this.isLoggingIn = true;
 
@@ -54,26 +51,24 @@ export class LoginComponent {
         error: (error) => {
           this.isLoggingIn = false;
           this.snackBar.open(error.message, 'OK', {
-            horizontalPosition: this.horizontalPosition,
-            verticalPosition: this.verticalPosition,
             duration: 3000,
           });
         },
       });
   }
 
-  recoverPassword() {
-    this.isRecoveringPassword = true;
+  // login with google
 
-    this.authService.recoverPassword(this.form.value.email).subscribe({
-      next: () => {
-        this.isRecoveringPassword = false;
-      },
-      error: (error) => {
-        this.isRecoveringPassword = false;
-      },
-    });
-  }
+  // loginWithGoogle() {
+  //   this.authService
+  //     .googleSignIn()
+  //     .then((res: any) => {
+  //       this.router.navigateByUrl('/');
+  //     })
+  //     .catch((error: any) => {
+  //       console.log(error);
+  //     });
+  // }
 
   visibility() {
     this.hide = !this.hide;

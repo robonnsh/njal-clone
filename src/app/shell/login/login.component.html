@@ -39,7 +39,6 @@
           <mat-error *ngIf="errorMessage">
             {{errorMessage}}
           </mat-error>
-
         </mat-form-field>
         <button mat-raised-button [disabled]="!form.valid" (click)="login()" *ngIf="!isLoggingIn" test-id="login-button"
           class="login_btn">
@@ -49,11 +48,13 @@
           <mat-spinner color="accent" diameter="20"></mat-spinner>
         </button>
       </form>
-      <a (click)="recoverPassword()" class="password_recovery">
+      <a class="password_recovery" [routerLink]="['/password-recovery']">
         forgotten password?
       </a>
     </div>
   </div>
-  <div class="text_logo"><a routerLink="/"><img src="/assets/images/svg/text-logo.svg" alt=""></a></div>
+  <div class="text_logo"><a [routerLink]="['/notjustalabel']"><img src="/assets/images/svg/text-logo.svg"
+        alt="logo"></a>
+  </div>
   <div class="aside-overlay" [class.show-overlay]="isAsideNavOpen" (click)="clearOverlay()"></div>
 </main>
