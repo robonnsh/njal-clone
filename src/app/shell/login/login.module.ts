@@ -4,7 +4,10 @@ import { LoginComponent } from './login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {
+  MatSnackBarModule,
+  MAT_SNACK_BAR_DEFAULT_OPTIONS,
+} from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatInputModule } from '@angular/material/input';
@@ -12,8 +15,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
+import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
+import { RouterModule, Routes } from '@angular/router';
+import { MainComponent } from '../main/main.component';
+
+const routes: Routes = [
+  {
+    path: 'password-recovery',
+    component: PasswordRecoveryComponent,
+  },
+  {
+    path: 'notjustalabel',
+    component: MainComponent,
+  },
+];
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [LoginComponent, RegisterComponent, PasswordRecoveryComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -27,8 +44,14 @@ import { MatIconModule } from '@angular/material/icon';
     BrowserAnimationsModule,
     MatCheckboxModule,
     MatIconModule,
+    RouterModule.forChild(routes),
   ],
   exports: [LoginComponent],
-  providers: [],
+  providers: [
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+      useValue: { horizontalPosition: 'center', verticalPosition: 'top' },
+    },
+  ],
 })
 export class LoginModule {}
