@@ -2,11 +2,7 @@ import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from '../../../services/auth/auth.service';
 import { passwordMatchValidator } from '../../../directives/password-match.directive';
-import {
-  MatSnackBar,
-  MatSnackBarHorizontalPosition,
-  MatSnackBarVerticalPosition,
-} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -22,8 +18,7 @@ export class RegisterComponent {
   errorMessage: string = '';
   siteKey: string;
   passwordsMatch: boolean = false;
-  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   constructor(
     private authenticationService: AuthService,
     private formBuilder: FormBuilder,
@@ -57,11 +52,12 @@ export class RegisterComponent {
 
     const email = this.form.value.email;
     const password = this.form.value.password;
-
+    const labelName = this.form.value.labelName;
     this.authenticationService
       .signUp({
         email: email,
         password: password,
+        labelName: labelName,
       })
       .subscribe({
         next: () => {
@@ -70,16 +66,12 @@ export class RegisterComponent {
           this.emailAlreadyInUse = false;
           this.errorMessage = '';
           this.snackBar.open('Registration successful', 'OK', {
-            horizontalPosition: this.horizontalPosition,
-            verticalPosition: this.verticalPosition,
             duration: 3000,
           });
         },
         error: (error) => {
           this.isLoggingIn = false;
           this.snackBar.open(error.message, 'OK', {
-            horizontalPosition: this.horizontalPosition,
-            verticalPosition: this.verticalPosition,
             duration: 3000,
           });
         },
