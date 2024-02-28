@@ -10,7 +10,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class PasswordRecoveryComponent implements OnInit {
   form!: FormGroup;
-
   isRecoveringPassword = false;
   constructor(
     private authService: AuthService,
@@ -24,6 +23,7 @@ export class PasswordRecoveryComponent implements OnInit {
   }
 
   recoverPassword(): void {
+    this.isRecoveringPassword = true;
     this.authService.recoverPassword(this.form.value.email).subscribe(
       () => {
         this.snackBar.open('Password recovery email sent', 'OK', {
@@ -31,6 +31,7 @@ export class PasswordRecoveryComponent implements OnInit {
         });
       },
       (error) => {
+        this.isRecoveringPassword = false;
         this.snackBar.open(error.message, 'OK', { duration: 5000 });
       }
     );

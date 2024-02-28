@@ -11,11 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class LoginComponent {
   form!: FormGroup;
   isLoggingIn = false;
-  isRecoveringPassword = false;
-  isRegistering = false;
-  errorMessage: string = '';
   hide = true;
-  showLoginComponents: boolean = true;
   isAsideNavOpen: boolean = false;
 
   constructor(

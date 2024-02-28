@@ -11,14 +11,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class RegisterComponent {
   form!: FormGroup;
-  isLoggingIn = false;
-  isRecoveringPassword = false;
   isRegistering = false;
+  isRecoveringPassword = false;
   emailAlreadyInUse = false;
   errorMessage: string = '';
   siteKey: string;
   passwordsMatch: boolean = false;
-
+  captchaResolved = false;
   constructor(
     private authenticationService: AuthService,
     private formBuilder: FormBuilder,
@@ -40,12 +39,19 @@ export class RegisterComponent {
         password: ['', [Validators.required, Validators.minLength(6)]],
         confirmPassword: ['', Validators.required],
         termsCheckbox: [false, Validators.requiredTrue],
+        recaptcha: ['', Validators.required],
       },
       { validators: passwordMatchValidator }
     );
   }
+  onCaptchaResolved(response: Event) {
+    if (response) {
+      this.captchaResolved = true;
+    }
+  }
 
   register() {
+    this.isRegistering = true;
     if (this.form.invalid) {
       return;
     }
@@ -70,7 +76,7 @@ export class RegisterComponent {
           });
         },
         error: (error) => {
-          this.isLoggingIn = false;
+          this.isRegistering = false;
           this.snackBar.open(error.message, 'OK', {
             duration: 3000,
           });

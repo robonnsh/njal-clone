@@ -33,7 +33,6 @@
       <mat-error *ngIf="form.get('password')!.hasError('minlength')">
         Password must be at least 6 characters long
       </mat-error>
-
     </mat-form-field>
     <mat-form-field>
       <mat-label>CONFIRM PASSWORD</mat-label>
@@ -58,13 +57,15 @@
     </div>
   </form>
   <div class="captcha">
-    <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" fromControlName="recaptcha">
+    <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" fromControlName="recaptcha"
+      (captchaResponse)="onCaptchaResolved($event)">
     </ngx-recaptcha2>
   </div>
-  <button mat-raised-button [disabled]="!form.valid" (click)="register()" *ngIf="!isLoggingIn" class="register_btn">
+  <button mat-raised-button [disabled]="!form.valid || !captchaResolved" (click)="register()" *ngIf="!isRegistering"
+    test-id="login-button" class="register_btn">
     REGISTER
   </button>
-  <button mat-raised-button class="button-loader register_btn" *ngIf="isLoggingIn">
+  <button mat-raised-button class="button-loader register_btn" *ngIf="isRegistering">
     <mat-spinner color="accent" diameter="20"></mat-spinner>
   </button>
 </div>

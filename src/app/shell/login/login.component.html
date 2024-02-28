@@ -36,9 +36,6 @@
           <mat-error *ngIf="form.get('password')!.hasError('minlength')">
             Password must be at least 6 characters long
           </mat-error>
-          <mat-error *ngIf="errorMessage">
-            {{errorMessage}}
-          </mat-error>
         </mat-form-field>
         <button mat-raised-button [disabled]="!form.valid" (click)="login()" *ngIf="!isLoggingIn" test-id="login-button"
           class="login_btn">

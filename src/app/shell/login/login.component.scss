@@ -25,7 +25,7 @@
   width: 377px;
 }
 .right_side_login {
-  margin-bottom: 185px;
+  margin-bottom: 300px;
 }
 .separator {
   border-right: 1.5px solid black;
@@ -95,6 +95,10 @@ mat-label {
 }
 ::ng-deep .mdc-text-field .mdc-text-field__input {
   caret-color: black !important;
+}
+
+.mat-mdc-progress-spinner.mat-accent {
+  --mdc-circular-progress-active-indicator-color: #fff !important;
 }
 .login_btn {
   width: 330px;
