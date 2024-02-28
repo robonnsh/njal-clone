@@ -6,10 +6,17 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginModule } from './login/login.module';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderModule } from './header/header.module';
 
 @NgModule({
   declarations: [ShellComponent, MainComponent, HomeComponent],
-  imports: [CommonModule, RouterModule, HttpClientModule, LoginModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    HttpClientModule,
+    LoginModule,
+    HeaderModule,
+  ],
   exports: [ShellComponent],
 })
 export class ShellModule {}
