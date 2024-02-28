@@ -1,0 +1,53 @@
+<header class="welcome_header">
+  <div class="shipping_info" [class.hidden]="!showLists()">FREE SHIPPING FROM OVER 50,000 EMERGING DESIGNERS' STUDIOS
+    AROUND THE GLOBE
+  </div>
+  <div class="respons_shipping_info" [class.hidden]="!showLists()">FREE SHIPPING ON ALL ORDERS</div>
+  <nav class="navbar">
+    <mat-toolbar>
+      <button mat-icon-button id="menuIcon" aria-label="Example icon-button with menu icon" (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <ul class="header_component">
+        <li class="header_list_start" [class.hidden]="!showLists()">
+          <a class="top-menu-item" href="/home">HOME</a>
+          <a class="top-menu-item" href="shop?gender=woman" (mouseleave)="toggleDropdown('',false)"
+            (mouseover)="toggleDropdown('woman',true)">WOMEN
+            <!-- <fa-icon style=" font-size: 10px;" [icon]="faChevronDown"></fa-icon> -->
+            <!-- <app-home-nav-dropdown *ngIf="selectedGender === 'woman'" [gender]="selectedGender"></app-home-nav-dropdown> -->
+          </a>
+          <a class="top-menu-item" href="shop?gender=man" (mouseover)="toggleDropdown('man',true)"
+            (mouseleave)="toggleDropdown('',false)">MEN
+            <!-- <fa-icon style=" font-size: 10px;" [icon]="faChevronDown"></fa-icon> -->
+            <!-- <app-home-nav-dropdown *ngIf="selectedGender === 'man'" [gender]="selectedGender"></app-home-nav-dropdown> -->
+          </a>
+        </li>
+        <div class="header_logo">
+          <a class="top-menu-item" href="#" (click)="refreshPage($event)" [class.hidden]="!showLists()"><img
+              src=" /assets/images/svg/logo.svg" alt="njal_logo"></a>
+        </div>
+        <li class="header_list_end" [class.hidden]="!showLists()">
+          <a class="top-menu-item" routerLink="/cart"><span class="material-symbols-outlined">
+              shopping_bag
+            </span>
+          </a>
+        </li>
+      </ul>
+    </mat-toolbar>
+    <mat-sidenav-container>
+      <mat-sidenav #sidenav [fixedInViewport]="true" [fixedTopGap]="60" mode="side">
+        <div class="side-nav-items">
+          <div>
+            <a (click)="sidenav.close()" mat-button routerLink="/" class="side-menu-item">Home</a>
+          </div>
+          <div>
+            <a (click)="sidenav.close()" mat-button routerLink="/contacts" class="side-menu-item">woman</a>
+          </div>
+          <div>
+            <a (click)="sidenav.close()" mat-button routerLink="/newcontact" class="side-menu-item">man</a>
+          </div>
+        </div>
+      </mat-sidenav>
+    </mat-sidenav-container>
+  </nav>
+</header>
