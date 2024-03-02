@@ -5,7 +5,7 @@
   <div class="respons_shipping_info" [class.hidden]="!showLists()">FREE SHIPPING ON ALL ORDERS</div>
   <nav class="navbar">
     <mat-toolbar>
-      <button mat-icon-button id="menuIcon" aria-label="Example icon-button with menu icon" (click)="sidenav.toggle()">
+      <button mat-icon-button id="menuIcon" (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
       <ul class="header_component">
@@ -26,12 +26,11 @@
           <a class="top-menu-item" href="#" (click)="refreshPage($event)" [class.hidden]="!showLists()"><img
               src=" /assets/images/svg/logo.svg" alt="njal_logo"></a>
         </div>
-        <li class="header_list_end" [class.hidden]="!showLists()">
-          <a class="top-menu-item" routerLink="/cart"><span class="material-symbols-outlined">
-              shopping_bag
-            </span>
+        <!-- <li class="header_list_end" [class.hidden]="!showLists()">
+          <a class="top-menu-item" routerLink="/cart"> <img src="/assets/images/svg/shopping_bag.svg" alt="">
           </a>
-        </li>
+        </li> -->
+        <app-shopping-cart></app-shopping-cart>
       </ul>
     </mat-toolbar>
     <mat-sidenav-container>

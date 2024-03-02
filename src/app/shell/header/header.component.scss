@@ -1,7 +1,7 @@
 .welcome_header {
   position: absolute;
   width: 100vw;
-  font-family: "Open Sans", sans-serif;
+  font-family: Avenir-regular;
   font-weight: lighter;
 }
 .shipping_info,
@@ -25,10 +25,10 @@
 
 .header_list_start,
 .header-logo,
-.header_list_end {
+app-shopping-cart {
   width: calc(100% - 33.3%);
 }
-.header_list_end {
+app-shopping-cart {
   display: flex;
   justify-content: flex-end;
 }
@@ -46,7 +46,7 @@ header li a {
   color: black;
   text-decoration: none;
   font-size: 15px;
-  padding: 0 30px;
+  padding: 0 20px;
 }
 // hidden lists for main page
 .hidden {
@@ -80,7 +80,6 @@ header li a {
     padding-right: 20px;
   }
 }
-
 // responsive
 .mat-toolbar {
   background-color: white;
@@ -105,9 +104,6 @@ header li a {
   margin: 20px;
 }
 
-.top-menu-item {
-  margin: 0 10px;
-}
 @media (min-width: 900px) {
   #menuIcon {
     display: none;
