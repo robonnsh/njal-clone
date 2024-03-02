@@ -1,0 +1,28 @@
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+img {
+  width: 27px;
+  height: 27px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.mat-drawer-content.mat-sidenav-content {
+  margin-right: 0 !important;
+}
+
+.mat-sidenav {
+  background-color: #3f51b5;
+  width: 300px;
+}
+
+.side-menu-item {
+  color: white !important;
+  margin-top: 20px;
+}

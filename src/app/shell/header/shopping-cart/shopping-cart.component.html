@@ -1,0 +1,15 @@
+<div [class.hidden]="!showLists()">
+  <button (click)="sidenav.toggle()">
+    <img src="assets/images/svg/shopping_bag.svg" alt="shopping-bag-button"></button>
+</div>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [fixedInViewport]="true" mode="over" position="end">
+    <button (click)="sidenav.toggle()">
+      <img src="assets/images/svg/close.svg" alt="close-button">
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="main-content">
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
