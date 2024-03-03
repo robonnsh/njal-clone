@@ -4,12 +4,17 @@
 </div>
 <mat-sidenav-container>
   <mat-sidenav #sidenav [fixedInViewport]="true" mode="over" position="end">
-    <button (click)="sidenav.toggle()">
-      <img src="assets/images/svg/close.svg" alt="close-button">
-    </button>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <div class="main-content">
+    <div class="sidenav-container">
+      <div class="sidenav_content">
+        <h5>your cart</h5>
+        <button (click)="sidenav.toggle()">
+          <img src="assets/images/svg/close.svg" alt="close-button">
+        </button>
+      </div>
+      <div class="mini_content">
+        <h6>You don't have any items in your cart yet.</h6>
+      </div>
     </div>
-  </mat-sidenav-content>
+  </mat-sidenav>
 </mat-sidenav-container>
+<div class="overlay" [class.show-overlay]="sidenav.opened"></div>

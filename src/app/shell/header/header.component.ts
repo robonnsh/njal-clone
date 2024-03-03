@@ -12,7 +12,6 @@ export class HeaderComponent {
   // faChevronDown = faChevronDown;
   selectedGender: string = '';
   isDropdownOpen: boolean = false;
-  isVisible: boolean = true;
 
   constructor(
     private navbarToggleService: NavbarToggleService,
