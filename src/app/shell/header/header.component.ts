@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { NavbarToggleService } from '../../services/navba-toggle/navbar-toggle.service';
 import { Location } from '@angular/common';
-
+import { NavbarToggleService } from '../../services/navbar-toggle/navbar-toggle.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,7 +8,6 @@ import { Location } from '@angular/common';
 })
 export class HeaderComponent {
   @Output() logoClicked = new EventEmitter<void>();
-  // faChevronDown = faChevronDown;
   selectedGender: string = '';
   isDropdownOpen: boolean = false;
 
@@ -31,6 +29,10 @@ export class HeaderComponent {
   }
 
   // dropdown
+  // toggleDropdown(gender: string, isOpen: boolean): void {
+  //   this.selectedGender = gender;
+  //   this.isDropdownOpen = isOpen;
+  // }
   toggleDropdown(gender: string, isOpen: boolean): void {
     this.selectedGender = gender;
     this.isDropdownOpen = isOpen;

@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { NavbarToggleService } from '../../../services/navba-toggle/navbar-toggle.service';
+import { Component } from '@angular/core';
+import { NavbarToggleService } from '../../../services/navbar-toggle/navbar-toggle.service';
 
 @Component({
   selector: 'app-shopping-cart',

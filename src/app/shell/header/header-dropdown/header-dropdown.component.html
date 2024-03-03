@@ -1,0 +1,22 @@
+<div class="dropdown">
+  <div class="dropdown_menu">
+    <div class="left_images" *ngFor="let image of images">
+      <a href=""><img src="{{image.imgUrl}}" alt=""></a>
+      <div class="button_cont">
+        <button>{{image.buttonName}}</button>
+      </div>
+    </div>
+    <div class="right_list" *ngFor="let label of labels">
+      <li class="column">
+        <div class="heading_cont">
+          <h2>{{label.heading}}</h2>
+        </div>
+        <ul class="column_list">
+          <li class="column_list_items" *ngFor="let item of label.list.split('\n')">
+            <a href="">{{ item}}</a>
+          </li>
+        </ul>
+      </li>
+    </div>
+  </div>
+</div>

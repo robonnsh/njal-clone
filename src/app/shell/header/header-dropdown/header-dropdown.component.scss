@@ -1,0 +1,81 @@
+* {
+  list-style: none;
+  text-decoration: none;
+  font-family: Avenir-regular;
+}
+.dropdown {
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  height: 70vh;
+  background-color: blue;
+  z-index: 999;
+}
+
+.dropdown_menu {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.left_images {
+  height: 100%;
+  width: 30%;
+  overflow: hidden;
+  margin-right: 5px;
+  position: relative;
+}
+.left_images img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: all 0.7s ease;
+}
+.left_images:hover .button_cont button {
+  background-color: #fff;
+  color: black;
+  transition: 0.8s ease;
+}
+
+.left_images img:hover {
+  transform: scale3d(1.05, 1.05, 1.05);
+}
+button {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  width: 80%;
+  height: 50px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+}
+.right_list {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 50px;
+}
+.heading_cont {
+  border-bottom: 1.5px solid rgba(6, 6, 6, 0.15);
+}
+h2 {
+  font-weight: 400;
+  font-size: 16px;
+  margin: 0 20px 10px;
+  cursor: pointer;
+}
+
+.column_list_items {
+  margin-left: 20px;
+  margin-top: 10px;
+  a {
+    color: black;
+    margin: 10px 0;
+    letter-spacing: 0.5px;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}

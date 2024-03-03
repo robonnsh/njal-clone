@@ -8,9 +8,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDividerModule } from '@angular/material/divider';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { HeaderDropdownComponent } from './header-dropdown/header-dropdown.component';
 
 @NgModule({
-  declarations: [HeaderComponent, ShoppingCartComponent],
+  declarations: [
+    HeaderComponent,
+    ShoppingCartComponent,
+    HeaderDropdownComponent,
+  ],
   imports: [
     CommonModule,
     BrowserAnimationsModule,

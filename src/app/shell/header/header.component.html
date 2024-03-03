@@ -15,15 +15,16 @@
           <a class="top-menu-item" href="/home">HOME</a>
           <a class="top-menu-item" href="shop?gender=woman" (mouseleave)="toggleDropdown('',false)"
             (mouseover)="toggleDropdown('woman',true)">WOMEN
-            <!-- <fa-icon style=" font-size: 10px;" [icon]="faChevronDown"></fa-icon> -->
-            <!-- <app-home-nav-dropdown *ngIf="selectedGender === 'woman'" [gender]="selectedGender"></app-home-nav-dropdown> -->
+            <i class="fa-solid fa-chevron-down"></i>
           </a>
+          <app-header-dropdown *ngIf="selectedGender === 'woman'" [gender]="selectedGender"></app-header-dropdown>
           <a class="top-menu-item" href="shop?gender=man" (mouseover)="toggleDropdown('man',true)"
             (mouseleave)="toggleDropdown('',false)">MEN
-            <!-- <fa-icon style=" font-size: 10px;" [icon]="faChevronDown"></fa-icon> -->
-            <!-- <app-home-nav-dropdown *ngIf="selectedGender === 'man'" [gender]="selectedGender"></app-home-nav-dropdown> -->
+            <i class="fa-solid fa-chevron-down"></i>
+            <app-header-dropdown *ngIf="selectedGender === 'man'" [gender]="selectedGender"></app-header-dropdown>
           </a>
         </li>
+
         <div class="header_logo">
           <a href="#" (click)="refreshPage($event)"><img src=" /assets/images/svg/logo.svg" alt="njal_logo"></a>
         </div>

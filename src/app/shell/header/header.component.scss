@@ -49,6 +49,9 @@ header li a {
   padding: 0 20px;
   opacity: 0.8;
 }
+.fa-chevron-down:before {
+  font-size: 10px;
+}
 // hidden lists for main page
 .hidden {
   visibility: hidden;

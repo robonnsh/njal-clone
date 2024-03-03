@@ -6,7 +6,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from './environments/environment';
-
 @NgModule({
   declarations: [AppComponent],
   imports: [
