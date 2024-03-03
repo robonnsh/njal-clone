@@ -42,3 +42,6 @@ testem.log
 Thumbs.db
 #assets 
 src/assets/
+
+# specs.ts files
+*.specs.ts
