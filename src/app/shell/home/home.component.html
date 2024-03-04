@@ -1,1 +1,39 @@
-<p>home works!</p>
+<section class="home-section">
+  <div class="home-wrapper">
+    <div class="left-wrapper-bg">
+      <h1 class="left-wrapper-heading">womenswear</h1>
+      <a [routerLink]="['/shop']" [queryParams]="{ gender: 'woman' }" class="left-wrapper-btn">shop now</a>
+    </div>
+    <div class="right-wrapper-bg">
+      <h1 class="left-wrapper-heading">menswear</h1>
+      <a [routerLink]="['/shop']" [queryParams]="{ gender: 'man' }" class="left-wrapper-btn">shop now</a>
+    </div>
+  </div>
+</section>
+<section class="home-content">
+  <div class="title">
+    <p>NOT JUST A LABEL IS THE WORLD’S SHOP WINDOW FOR CONTEMPORARY LUXURY FASHION WITH COLLECTIONS FROM
+      OVER 50,000 EMERGING
+      DESIGNERS AROUND THE WORLD, AVAILABLE TO BUY BEFORE THEY'RE SEEN ANYWHERE ELSE.</p>
+    <div class="partners">
+      <img src="/assets/images/partners/wwd.jpg" alt="">
+      <img src="/assets/images/partners/bof.jpg" alt="">
+      <img src="/assets/images/partners/vogue.jpg" alt="">
+      <img src="/assets/images/partners/elle.jpg" alt="">
+      <img src="/assets/images/partners/forbes.jpg" alt="">
+    </div>
+  </div>
+  <!-- <div class="new-in">
+  </div> -->
+  <app-product-card></app-product-card>
+  <div class="separator">
+    <div class="left-img">
+      <img src="/assets/images/home-bg/ANASTASIA_BULL1_1_2_960x992.jpg" alt="">
+    </div>
+    <div class="right-content">
+      <h1>Fashion has become our playground, in which, with the curiousness of a child, we play, without rules nor
+        limits.
+      </h1>
+    </div>
+  </div>
+</section>
