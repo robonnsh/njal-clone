@@ -7,9 +7,10 @@ import { HomeComponent } from './home/home.component';
 import { LoginModule } from './login/login.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderModule } from './header/header.module';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 @NgModule({
-  declarations: [ShellComponent, MainComponent, HomeComponent],
+  declarations: [ShellComponent, MainComponent, HomeComponent, ProductCardComponent],
   imports: [
     CommonModule,
     RouterModule,

@@ -7,7 +7,7 @@ button {
 img {
   width: 27px;
   height: 27px;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .hidden {
@@ -77,7 +77,10 @@ img {
   font-family: Avenir-regular;
   opacity: 0.8;
   letter-spacing: 0.5px;
-  font-size: 14px;
+
+  h6 {
+    font-size: 14px;
+  }
 
   @media (max-width: 329px) {
     width: 40%;

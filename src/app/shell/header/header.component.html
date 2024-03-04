@@ -4,33 +4,32 @@
   </div>
   <div class="respons_shipping_info" [class.hidden]="!showLists()">FREE SHIPPING ON ALL ORDERS</div>
   <nav class="navbar">
-    <mat-toolbar [class.hidden]="!showLists()">
-      <ul class="header_component">
-        <button id="menuIcon" (click)="sidenav.toggle()">
-          <div class="burger_menu">
-            <img src="/assets/images/svg/menu.svg" alt="burger-menu">
-          </div>
-        </button>
-        <li class="header_list_start">
-          <a class="top-menu-item" href="/home">HOME</a>
-          <a class="top-menu-item" href="shop?gender=woman" (mouseleave)="toggleDropdown('',false)"
-            (mouseover)="toggleDropdown('woman',true)">WOMEN
-            <i class="fa-solid fa-chevron-down"></i>
-          </a>
-          <app-header-dropdown *ngIf="selectedGender === 'woman'" [gender]="selectedGender"></app-header-dropdown>
-          <a class="top-menu-item" href="shop?gender=man" (mouseover)="toggleDropdown('man',true)"
-            (mouseleave)="toggleDropdown('',false)">MEN
-            <i class="fa-solid fa-chevron-down"></i>
-            <app-header-dropdown *ngIf="selectedGender === 'man'" [gender]="selectedGender"></app-header-dropdown>
-          </a>
-        </li>
-
-        <div class="header_logo">
-          <a href="#" (click)="refreshPage($event)"><img src=" /assets/images/svg/logo.svg" alt="njal_logo"></a>
+    <ul class="header_component" [class.hidden]="!showLists()">
+      <button id="menuIcon" (click)="sidenav.toggle()">
+        <div class="burger_menu">
+          <img src="/assets/images/svg/menu.svg" alt="burger-menu">
         </div>
-        <app-shopping-cart></app-shopping-cart>
-      </ul>
-    </mat-toolbar>
+      </button>
+      <li class="header_list_start">
+        <a class="top-menu-item" href="/home">HOME</a>
+        <a class="top-menu-item" href="shop?gender=woman" (mouseleave)="toggleDropdown('',false)"
+          (mouseover)="toggleDropdown('woman',true)" (click)="toggleDropdown('woman', true)">WOMEN
+          <i class="fa-solid fa-chevron-down"></i>
+          <app-header-dropdown *ngIf="selectedGender === 'woman'" [gender]="selectedGender"></app-header-dropdown>
+        </a>
+        <a class="top-menu-item" href="shop?gender=man" (mouseover)="toggleDropdown('man',true)"
+          (mouseleave)="toggleDropdown('',false)">MEN
+          <i class="fa-solid fa-chevron-down"></i>
+          <app-header-dropdown *ngIf="selectedGender === 'man'" [gender]="selectedGender"></app-header-dropdown>
+        </a>
+      </li>
+
+      <div class="header_logo">
+        <a href="#" (click)="refreshPage($event)"><img src=" /assets/images/svg/logo.svg" alt="njal_logo"></a>
+      </div>
+      <app-shopping-cart></app-shopping-cart>
+    </ul>
+
     <mat-sidenav-container>
       <mat-sidenav #sidenav [fixedInViewport]="true">
         <button class="close_btn" (click)="sidenav.toggle()">
