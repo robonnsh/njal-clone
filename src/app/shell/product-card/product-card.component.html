@@ -1,1 +1,21 @@
-<p>product-card works!</p>
+<h1>Products</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID#</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Color</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <th>{{product.id}}</th>
+      <th>{{product.name}}</th>
+      <th>{{product.type}}</th>
+      <th>{{product.color}}</th>
+      <th>{{product.price | currency}}</th>
+    </tr>
+  </tbody>
+</table>
