@@ -3,18 +3,16 @@
   <thead>
     <tr>
       <th>ID#</th>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Color</th>
+      <th>designer name</th>
+      <th>product name</th>
       <th>Price</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let product of products">
       <th>{{product.id}}</th>
-      <th>{{product.name}}</th>
-      <th>{{product.type}}</th>
-      <th>{{product.color}}</th>
+      <th>{{product.designerName}}</th>
+      <th>{{product.productName}}</th>
       <th>{{product.price | currency}}</th>
     </tr>
   </tbody>
