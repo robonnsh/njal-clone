@@ -3,7 +3,7 @@
 💥💥💥 This is my very first e-commerce project in Angular which I started on February-7-2024 and I am still working on. You can check original website as well : [notjustalabel.com](https://www.notjustalabel.com/)
 
 # Technologies used Front:
-HTML,CSS(Sass), Angular Material Typescript Angular
+HTML,CSS(Sass),Typescript, Angular, Angular Material 
 
  # Technologies used Back:
  .Net Core,
