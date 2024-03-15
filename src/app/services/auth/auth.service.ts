@@ -1,17 +1,7 @@
 import { Injectable } from '@angular/core';
-import {
-  Observable,
-  catchError,
-  from,
-  map,
-  of,
-  switchMap,
-  tap,
-  throwError,
-} from 'rxjs';
+import { Observable, catchError, from, switchMap, throwError } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { GoogleAuthProvider } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
@@ -54,11 +44,6 @@ export class AuthService {
       )
     );
   }
-
-  // login with google
-  // googleSignIn() {
-  //   return this.auth.signInWithPopup(new GoogleAuthProvider());
-  // }
 
   // password recovery - check if email exist
 
