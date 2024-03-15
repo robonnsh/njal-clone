@@ -7,7 +7,7 @@
     <div class="right_side_login">
       <h1>login</h1>
       <p>Please login to access your NJAL Look Book by using your e-mail address and password.</p>
-      <form [formGroup]="form">
+      <form [formGroup]="form" (ngSubmit)="onLogin(form)">
         <mat-form-field>
           <mat-label>EMAIL</mat-label>
           <input type="email" matInput formControlName="email">
@@ -37,7 +37,7 @@
             Password must be at least 6 characters long
           </mat-error>
         </mat-form-field>
-        <button mat-raised-button [disabled]="!form.valid" (click)="login()" *ngIf="!isLoggingIn" test-id="login-button"
+        <button mat-raised-button [disabled]="!form.valid" *ngIf="!isLoggingIn" test-id="login-button"
           class="login_btn">
           LOGIN
         </button>
