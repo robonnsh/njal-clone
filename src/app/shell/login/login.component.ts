@@ -34,7 +34,7 @@ export class LoginComponent {
   }
 
   // login
-  login() {
+  onLogin(loginForm: FormGroup) {
     this.isLoggingIn = true;
 
     this.authService
@@ -43,7 +43,7 @@ export class LoginComponent {
         password: this.form.value.password,
       })
       .subscribe({
-        next: () => this.router.navigate(['home']),
+        next: () => this.router.navigate(['password-recovery']),
         error: (error) => {
           this.isLoggingIn = false;
           this.snackBar.open(error.message, 'OK', {
@@ -52,20 +52,6 @@ export class LoginComponent {
         },
       });
   }
-
-  // login with google
-
-  // loginWithGoogle() {
-  //   this.authService
-  //     .googleSignIn()
-  //     .then((res: any) => {
-  //       this.router.navigateByUrl('/');
-  //     })
-  //     .catch((error: any) => {
-  //       console.log(error);
-  //     });
-  // }
-
   visibility() {
     this.hide = !this.hide;
   }
