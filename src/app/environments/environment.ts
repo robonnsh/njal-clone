@@ -7,4 +7,5 @@ export const environment = {
     messagingSenderId: '665843300320',
     appId: '1:665843300320:web:5e6569299c135d05e11d85',
   },
+  baseApiUrl: 'http://localhost:5016',
 };
