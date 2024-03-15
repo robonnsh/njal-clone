@@ -1,8 +1,19 @@
 # Njal
 
-💥💥💥 This is my very first e-commerce project in Angular which I started on February-7-2024 and I am still working on. I wasn't active on Github, but from now on, i will try to keep it update. You can check original website as well : notjustalabel.com
+💥💥💥 This is my very first e-commerce project in Angular which I started on February-7-2024 and I am still working on. I wasn't active on Github, but from now on, i will try to keep it update. You can check original website as well : [notjustalabel.com](https://www.notjustalabel.com/)
 
 # ⛔ Node modules not included
+
+# Technologies used Front:
+Markup - HTML,CSS(Sass), Angular Material
+Language - Typescript
+JS Framework - Angular
+
+ # Technologies used Back:
+ .Net Core,
+ Entity framework,
+ SQL database,
+ Firebase - currently using for register and login, planning to change.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.3.
 
