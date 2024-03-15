@@ -1,19 +1,22 @@
-<h1>Products</h1>
-<table>
-  <thead>
-    <tr>
-      <th>ID#</th>
-      <th>designer name</th>
-      <th>product name</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let product of products">
-      <th>{{product.id}}</th>
-      <th>{{product.designerName}}</th>
-      <th>{{product.productName}}</th>
-      <th>{{product.price | currency}}</th>
-    </tr>
-  </tbody>
-</table>
+<div class="home-cont-title">
+  <h4>new in</h4>
+</div>
+<div class="shop_container">
+  <div class="shop_main_content">
+    <div class="product" *ngFor="let product of products">
+      <div class="product-img">
+        <img src="/assets/images/home-card/2.jpg" alt="">
+      </div>
+      <div class="product-details">
+        <p class="designer-name">{{product.designerName}}</p>
+        <h2 class="product-name">{{product.productName}}</h2>
+        <p class="price">{{product.price | currency}}</p>
+      </div>
+      <div class="cart_btn">
+        <button>Add To Cart</button>
+        <button>QUICKSHOP</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="view-all"><a [routerLink]="['/shop']" [queryParams]="{ gender: 'woman' }">view all</a></div>
