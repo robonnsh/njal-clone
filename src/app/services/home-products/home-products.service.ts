@@ -7,10 +7,10 @@ import { Product } from '../../interfaces/product';
   providedIn: 'root',
 })
 export class HomeProductsService {
-  baseApiUrl: string = 'https://localhost:7051';
+  baseApiUrl: string = 'http://localhost:5016';
   constructor(private http: HttpClient) {}
 
   getAllProduct(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.baseApiUrl + '/api/products');
+    return this.http.get<Product[]>(this.baseApiUrl + '/api/Product');
   }
 }
