@@ -1,0 +1,122 @@
+.product_container {
+  width: 90vw;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  margin-left: 100px;
+  align-items: center;
+}
+.new_product {
+  width: 60vw;
+  height: 80vh;
+}
+.product_preview {
+  width: 40vw;
+  height: 80vh;
+  margin-left: 50px;
+}
+
+.left_side_register h1 {
+  font-family: knockout;
+  font-weight: lighter;
+  font-size: 55px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+form {
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // flex-direction: column;
+  // display: grid;
+  // grid-template-columns: repeat(2, 1fr);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  font-family: Avenir-regular;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+  form textarea {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+  }
+  button,
+  mat-form-field {
+    width: -webkit-fill-available;
+  }
+  mat-form-field {
+    width: 90%;
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding-top: 20px;
+  }
+}
+mat-error,
+mat-label {
+  font-family: Avenir-regular;
+  font-size: 14px;
+}
+
+::ng-deep .mdc-text-field--filled .mdc-line-ripple::after {
+  border-bottom: 2px solid black !important;
+}
+::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: black !important;
+}
+::ng-deep .mdc-text-field .mdc-text-field__input {
+  caret-color: black !important;
+}
+
+mat-form-field:last-of-type ::ng-deep .mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+::ng-deep .mat-mdc-form-field-error-wrapper {
+  padding: 0 !important;
+}
+::ng-deep
+  .mat-mdc-checkbox.mat-accent
+  .mdc-checkbox--selected
+  ~ .mdc-checkbox__ripple {
+  background: black !important;
+}
+
+::ng-deep
+  .mat-mdc-checkbox.mat-accent
+  .mdc-checkbox
+  .mdc-checkbox__native-control:enabled:checked
+  ~ .mdc-checkbox__background {
+  border-color: transparent !important;
+  background-color: black !important;
+}
+.mat-mdc-progress-spinner.mat-accent {
+  --mdc-circular-progress-active-indicator-color: #fff !important;
+}
+
+.btn_container {
+  width: 100%;
+  display: flex;
+}
+
+.btn {
+  width: 30%;
+  height: 43px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  background: none;
+  cursor: pointer;
+  background-color: white !important;
+  border: 1px solid black;
+  border-radius: none;
+  box-shadow: none;
+  padding: 0 20px;
+}
+.btn:hover {
+  background-color: #000 !important;
+  transition: 0.3s ease-in-out;
+  color: white;
+  box-shadow: none;
+}

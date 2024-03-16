@@ -1,0 +1,54 @@
+<div class="product_container">
+  <div class="new_product">
+    <h1>Add new product</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="one">Men</mat-option>
+          <mat-option value="two">Women</mat-option>
+          <mat-option value="two">Unisex</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Collection Name</mat-label>
+        <input type="text" matInput formControlName="designerName" [(ngModel)]="propertyView.DesignerName">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Product Name</mat-label>
+        <input type="text" matInput formControlName="productName" [(ngModel)]="propertyView.ProductName">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Price USD</mat-label>
+        <input type="text" matInput formControlName="price" [(ngModel)]="propertyView.Price">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Country</mat-label>
+        <input type="text" matInput formControlName="country" [(ngModel)]="propertyView.Country">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Size</mat-label>
+        <input type="text" matInput formControlName="size" [(ngModel)]="propertyView.Size">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Colour</mat-label>
+        <input type="text" matInput formControlName="colour" [(ngModel)]="propertyView.Colour">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Product Description</mat-label>
+        <textarea class="description" matInput formControlName="description"
+          [(ngModel)]="propertyView.Description"></textarea>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>photos</mat-label>
+        <input type="text" matInput formControlName="photos">
+      </mat-form-field>
+      <div class="btn_container">
+        <button class="btn" type="submit">Submit collection</button>
+      </div>
+    </form>
+  </div>
+  <div class="product_preview">
+    <app-product-preview [product]="propertyView"></app-product-preview>
+  </div>
+</div>
