@@ -18,7 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from '../main/main.component';
-
+import { AdminPanelComponent } from '../admin-panel/admin-panel.component';
 const routes: Routes = [
   {
     path: 'password-recovery',
@@ -27,6 +27,10 @@ const routes: Routes = [
   {
     path: 'notjustalabel',
     component: MainComponent,
+  },
+  {
+    path: 'admin-panel',
+    component: AdminPanelComponent,
   },
 ];
 @NgModule({

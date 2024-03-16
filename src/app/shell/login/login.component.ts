@@ -43,7 +43,7 @@ export class LoginComponent {
         password: this.form.value.password,
       })
       .subscribe({
-        next: () => this.router.navigate(['password-recovery']),
+        next: () => this.router.navigate(['admin-panel']),
         error: (error) => {
           this.isLoggingIn = false;
           this.snackBar.open(error.message, 'OK', {
