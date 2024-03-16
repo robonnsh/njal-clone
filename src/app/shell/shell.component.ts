@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shell',
   templateUrl: './shell.component.html',
-  styleUrl: './shell.component.scss'
+  styleUrl: './shell.component.scss',
 })
 export class ShellComponent {
-
+  constructor(private router: Router) {}
+  showFooter(): boolean {
+    const allowedRoutes = ['/home', '/shop?gender=woman', '/shop?gender=man'];
+    return allowedRoutes.includes(this.router.url);
+  }
 }
