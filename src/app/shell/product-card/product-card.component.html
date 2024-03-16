@@ -5,12 +5,14 @@
   <div class="shop_main_content">
     <div class="product" *ngFor="let product of products">
       <div class="product-img">
-        <img src="/assets/images/home-card/2.jpg" alt="">
+        <a routerLink="/product-details">
+          <img src="/assets/images/home-card/2.jpg" alt="">
+        </a>
       </div>
       <div class="product-details">
-        <p class="designer-name">{{product.designerName}}</p>
-        <h2 class="product-name">{{product.productName}}</h2>
-        <p class="price">{{product.price | currency}}</p>
+        <p class="designer-name">{{product.DesignerName}}</p>
+        <h2 class="product-name">{{product.ProductName}}</h2>
+        <p class="price">{{product.Price | currency}}</p>
       </div>
       <div class="cart_btn">
         <button>Add To Cart</button>
@@ -19,4 +21,5 @@
     </div>
   </div>
 </div>
-<div class="view-all"><a [routerLink]="['/shop']" [queryParams]="{ gender: 'woman' }">view all</a></div>
+<div class="view-all"><a [routerLink]="['/shop']" [queryParams]="{ gender: 'woman' }">view all</a>
+</div>
