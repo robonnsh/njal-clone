@@ -1,6 +1,15 @@
 # Njal
 
-💥💥💥 This is my very first e-commerce project in Angular which I started on February-7-2024 and I am still working on. I wasn't active on Github, but from now on, i will try to keep it update. You can check original website as well : notjustalabel.com
+💥💥💥 This is my very first e-commerce project in Angular which I started on February-7-2024 and I am still working on. You can check original website as well : [notjustalabel.com](https://www.notjustalabel.com/)
+
+# Technologies used Front:
+HTML,CSS(Sass),Typescript, Angular, Angular Material 
+
+ # Technologies used Back:
+ .Net Core,
+ Entity framework,
+ SQL database,
+ Firebase - currently using for register and login, planning to change.
 
 # ⛔ Node modules not included
 
