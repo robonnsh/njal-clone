@@ -8,18 +8,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ShellComponent } from './shell.component';
 import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
-import { ProductCardComponent } from './product-card/product-card.component';
 import { FooterComponent } from './footer/footer.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductCardModule } from './product-card/product-card.module';
 @NgModule({
-  declarations: [
-    ShellComponent,
-    MainComponent,
-    HomeComponent,
-    ProductCardComponent,
-    FooterComponent,
-    ProductDetailsComponent,
-  ],
+  declarations: [ShellComponent, MainComponent, HomeComponent, FooterComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -27,6 +19,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     LoginModule,
     HeaderModule,
     AdminModule,
+    ProductCardModule,
   ],
   exports: [ShellComponent],
 })

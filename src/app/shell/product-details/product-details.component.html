@@ -1,17 +1,13 @@
 <div class="main-wrapper">
   <div class="container">
     <div class="images-left-samll">
-      <!-- <img *ngFor="let img of product?.frontImgUrl" [src]='img' [alt]="product?.productName"> -->
     </div>
     <div class="main-img">
-      <!-- <ng-container *ngFor="let imgUrl of product?.frontImgUrl">
-        <img *ngIf="imgUrl" [src]="imgUrl" [alt]="product?.productName">
-      </ng-container> -->
     </div>
-    <div class="product-div-right">
-      <span class="designer-name">lorem </span>
-      <span class="product-name">lorem</span>
-      <span class="product-price">{{10 | currency}}</span>
+    <div class="product-div-right" *ngIf="NewInProduct">
+      <span class="designer-name">{{NewInProduct.designerName}} </span>
+      <span class="product-name">{{NewInProduct.name}}</span>
+      <span class="product-price">{{NewInProduct.price | currency}}</span>
       <div class="quantity">
         <span>Quantity</span>
         <div>1</div>

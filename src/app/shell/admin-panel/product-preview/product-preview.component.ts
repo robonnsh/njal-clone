@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Iproduct } from '../../../interfaces/Iproduct.interface';
 
 @Component({
   selector: 'app-product-preview',
@@ -7,14 +6,11 @@ import { Iproduct } from '../../../interfaces/Iproduct.interface';
   styleUrl: './product-preview.component.scss',
 })
 export class ProductPreviewComponent {
-  @Input() product: Iproduct = {
-    Id: 0,
-    DesignerName: '',
-    ProductName: '',
-    Price: 0,
-    Country: '',
-    Size: '',
-    Colour: '',
-    Description: '',
-  };
+  // @Input() product: Iproduct = {
+  //   id: 1,
+  //   gender: 0,
+  //   name: '',
+  //   productType: '',
+  //   subCategoryType: '',
+  // };
 }

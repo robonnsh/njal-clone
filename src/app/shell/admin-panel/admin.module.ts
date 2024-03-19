@@ -13,7 +13,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { ProductPreviewComponent } from './product-preview/product-preview.component';
 
 const routes: Routes = [
-  { path: 'product-preview', component: ProductPreviewComponent },
+  {
+    path: 'Product-preview',
+    component: ProductPreviewComponent,
+  },
 ];
 
 @NgModule({

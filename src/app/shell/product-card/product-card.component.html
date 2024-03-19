@@ -3,16 +3,16 @@
 </div>
 <div class="shop_container">
   <div class="shop_main_content">
-    <div class="product" *ngFor="let product of products">
+    <div class="product" *ngFor="let product of NewInproducts">
       <div class="product-img">
-        <a routerLink="/product-details">
+        <a routerLink="/product-details/{{product.id}}">
           <img src="/assets/images/home-card/2.jpg" alt="">
         </a>
       </div>
       <div class="product-details">
-        <p class="designer-name">{{product.DesignerName}}</p>
-        <h2 class="product-name">{{product.ProductName}}</h2>
-        <p class="price">{{product.Price | currency}}</p>
+        <p class="designer-name">{{product.designerName}}</p>
+        <h2 class="product-name">{{product.name}}</h2>
+        <p class="price">{{product.price | currency}}</p>
       </div>
       <div class="cart_btn">
         <button>Add To Cart</button>

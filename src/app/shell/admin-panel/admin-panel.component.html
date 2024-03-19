@@ -1,4 +1,4 @@
-<div class="product_container">
+<!-- <div class="product_container">
   <div class="new_product">
     <h1>Add new product</h1>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -11,33 +11,18 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Collection Name</mat-label>
-        <input type="text" matInput formControlName="designerName" [(ngModel)]="propertyView.DesignerName">
-      </mat-form-field>
-      <mat-form-field appearance="outline">
         <mat-label>Product Name</mat-label>
-        <input type="text" matInput formControlName="productName" [(ngModel)]="propertyView.ProductName">
+        <input type="text" matInput formControlName="productName" [(ngModel)]="propertyView.name">
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Price USD</mat-label>
-        <input type="text" matInput formControlName="price" [(ngModel)]="propertyView.Price">
+        <mat-label>Product Type</mat-label>
+        <mat-select formControlName="productType" *ngFor="let productType of productTypes">
+          <mat-option value="one">{{productType}}</mat-option>
+        </mat-select>
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Country</mat-label>
-        <input type="text" matInput formControlName="country" [(ngModel)]="propertyView.Country">
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Size</mat-label>
-        <input type="text" matInput formControlName="size" [(ngModel)]="propertyView.Size">
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Colour</mat-label>
-        <input type="text" matInput formControlName="colour" [(ngModel)]="propertyView.Colour">
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Product Description</mat-label>
-        <textarea class="description" matInput formControlName="description"
-          [(ngModel)]="propertyView.Description"></textarea>
+        <mat-label>Sub-Category Type</mat-label>
+        <input type="text" matInput formControlName="subCategoryType" [(ngModel)]="propertyView.subCategoryType">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>photos</mat-label>
@@ -51,4 +36,4 @@
   <div class="product_preview">
     <app-product-preview [product]="propertyView"></app-product-preview>
   </div>
-</div>
+</div> -->

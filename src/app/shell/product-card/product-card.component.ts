@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HomeProductsService } from '../../services/home-products/home-products.service';
 import { Product } from '../../interfaces/product';
-import { Iproduct } from '../../interfaces/Iproduct.interface';
+import { INewInProduct } from '../../interfaces/INewIn.interface';
 
 @Component({
   selector: 'app-product-card',
@@ -10,26 +10,25 @@ import { Iproduct } from '../../interfaces/Iproduct.interface';
   styleUrl: './product-card.component.scss',
 })
 export class ProductCardComponent implements OnInit {
-  // products: Product[] = [];
-  products: Array<Iproduct> = [];
+  NewInproducts: INewInProduct[] = [];
+  // NewInproducts: Array<Iproduct> = [];
   constructor(
     private router: Router,
     private homeProductService: HomeProductsService
   ) {}
-
+  ngOnInit(): void {
+    this.homeProductService.getLastAddedFourProduct().subscribe((data) => {
+      this.NewInproducts = data;
+    });
+  }
   // ngOnInit(): void {
-  //   this.homeProductService.getAllProduct().subscribe({
+  //   this.homeProductService.getNewInProducts().subscribe({
   //     next: (products) => {
-  //       this.products = products;
+  //       this.NewInproducts = products;
   //     },
   //     error: (response) => {
   //       console.log(response);
   //     },
   //   });
   // }
-  ngOnInit(): void {
-    this.homeProductService.getAllProperties().subscribe((data) => {
-      this.products = data;
-    });
-  }
 }
