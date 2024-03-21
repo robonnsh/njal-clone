@@ -40,8 +40,9 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-#assets 
+#assets
 src/assets/
-
+staticDataService
+collectionEndTitles.ts
 # specs.ts files
 *.spec.ts
