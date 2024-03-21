@@ -1,24 +1,29 @@
-<!-- <div class="product_container">
+<div class="product_container">
   <div class="new_product">
     <h1>Add new product</h1>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <mat-form-field appearance="outline">
+      <!-- <mat-form-field appearance="outline">
         <mat-label>Gender</mat-label>
         <mat-select formControlName="gender">
-          <mat-option value="one">Men</mat-option>
-          <mat-option value="two">Women</mat-option>
-          <mat-option value="two">Unisex</mat-option>
+          <mat-option *ngFor="let pType of productTypes" [value]="pType.id">{{pType.name}}</mat-option>
         </mat-select>
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Product Name</mat-label>
-        <input type="text" matInput formControlName="productName" [(ngModel)]="propertyView.name">
-      </mat-form-field>
+      </mat-form-field> -->
       <mat-form-field appearance="outline">
         <mat-label>Product Type</mat-label>
-        <mat-select formControlName="productType" *ngFor="let productType of productTypes">
-          <mat-option value="one">{{productType}}</mat-option>
+        <mat-select formControlName="productType">
+          <mat-option *ngFor="let pType of productTypes" [value]="pType.id">{{pType.name}}</mat-option>
         </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Sub-Category Type</mat-label>
+        <mat-select formControlName="subCategoryType">
+          <mat-option *ngFor="let subCType of subCategoryTypes" [value]="subCType.id">{{subCType.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- <mat-form-field appearance="outline">
+        <mat-label>Product Name</mat-label>
+        <input type="text" matInput formControlName="productName" [(ngModel)]="propertyView.name">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Sub-Category Type</mat-label>
@@ -27,13 +32,13 @@
       <mat-form-field appearance="outline">
         <mat-label>photos</mat-label>
         <input type="text" matInput formControlName="photos">
-      </mat-form-field>
+      </mat-form-field> -->
       <div class="btn_container">
         <button class="btn" type="submit">Submit collection</button>
       </div>
     </form>
   </div>
-  <div class="product_preview">
+  <!-- <div class="product_preview">
     <app-product-preview [product]="propertyView"></app-product-preview>
-  </div>
-</div> -->
+  </div> -->
+</div>
