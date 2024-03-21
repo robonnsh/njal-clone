@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class ShellComponent {
   constructor(private router: Router) {}
   showFooter(): boolean {
-    const allowedRoutes = ['/home', '/shop?gender=woman', '/shop?gender=man'];
+    const allowedRoutes = ['/home'];
     return allowedRoutes.includes(this.router.url);
   }
 }
