@@ -2,11 +2,11 @@
   <div class="home-wrapper">
     <div class="left-wrapper-bg">
       <h1 class="left-wrapper-heading">womenswear</h1>
-      <a [routerLink]="['/shop']" [queryParams]="{ gender: 'woman' }" class="left-wrapper-btn">shop now</a>
+      <a routerLink="/collection/shop/gender/{{2}}" class="left-wrapper-btn">shop now</a>
     </div>
     <div class="right-wrapper-bg">
       <h1 class="left-wrapper-heading">menswear</h1>
-      <a [routerLink]="['/shop']" [queryParams]="{ gender: 'man' }" class="left-wrapper-btn">shop now</a>
+      <a routerLink="/collection/shop/gender/{{1}}" class="left-wrapper-btn">shop now</a>
     </div>
   </div>
 </section>
@@ -23,9 +23,9 @@
       <img src="/assets/images/partners/forbes.jpg" alt="">
     </div>
   </div>
-  <!-- <div class="new-in">
-  </div> -->
-  <app-product-card></app-product-card>
+  <div class="product-card">
+    <app-product-card [products]="products"></app-product-card>
+  </div>
   <div class="separator">
     <div class="left-img">
       <img src="/assets/images/home-bg/ANASTASIA_BULL1_1_2_960x992.jpg" alt="">
