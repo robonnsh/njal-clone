@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { INewInProduct } from '../../interfaces/INewIn.interface';
 import { HomeProductsService } from '../../services/home-products/home-products.service';
+import { Product } from '../../interfaces/product';
 
 @Component({
   selector: 'app-product-details',
@@ -9,18 +10,20 @@ import { HomeProductsService } from '../../services/home-products/home-products.
   styleUrl: './product-details.component.scss',
 })
 export class ProductDetailsComponent implements OnInit {
-  NewInProduct!: INewInProduct;
+  productData: undefined | Product;
   constructor(
     private route: ActivatedRoute,
     private homeProductService: HomeProductsService
   ) {}
   ngOnInit(): void {
-    let NewInProductId = this.route.snapshot.paramMap.get('NewInProductId');
-    NewInProductId &&
+    const productId = this.route.snapshot.paramMap.get('id');
+    console.warn(productId);
+    productId &&
       this.homeProductService
-        .getNewInProducts(NewInProductId)
-        .subscribe((res) => {
-          this.NewInProduct = res;
+        .getProduct(+productId)
+        .subscribe((res: Product) => {
+          console.warn(res);
+          this.productData = res;
         });
   }
 }
