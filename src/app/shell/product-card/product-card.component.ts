@@ -10,7 +10,7 @@ import { IProductBase } from '../../interfaces/iproduct-base';
   styleUrl: './product-card.component.scss',
 })
 export class ProductCardComponent implements OnInit {
-  @Input() products!: Product[];
+  @Input() product!: IProductBase;
   constructor() {}
   ngOnInit(): void {}
 }

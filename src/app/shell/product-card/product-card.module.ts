@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductCardComponent } from './product-card.component';
 import { ProductDetailsComponent } from '../product-details/product-details.component';
 import { SlugifyPipe } from '../../Pipes/slugify.pipe';
-
 const routes: Routes = [
   {
     path: 'products/:id',

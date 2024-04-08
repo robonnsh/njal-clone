@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { INewInProduct } from '../../interfaces/INewIn.interface';
 import { HomeProductsService } from '../../services/home-products/home-products.service';
 import { Product } from '../../interfaces/product';
+import { productResolverData } from '../../interfaces/productResolverData';
 
 @Component({
   selector: 'app-product-details',
@@ -10,7 +11,9 @@ import { Product } from '../../interfaces/product';
   styleUrl: './product-details.component.scss',
 })
 export class ProductDetailsComponent implements OnInit {
-  productData: undefined | Product;
+  product = new Product();
+  productData!: Product;
+  productId!: number;
   constructor(
     private route: ActivatedRoute,
     private homeProductService: HomeProductsService
@@ -26,4 +29,11 @@ export class ProductDetailsComponent implements OnInit {
           this.productData = res;
         });
   }
+
+  // this.productId = +this.route.snapshot.params['id'];
+  // this.route.data.subscribe((data) => {
+  //   const resolvedData = data as productResolverData;
+  //   this.product = data['product'];
+  //   console.log(this.product);
+  // });
 }
