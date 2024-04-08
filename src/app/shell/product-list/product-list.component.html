@@ -1,18 +1,46 @@
 <div class="woman_title">
-  <!-- <div class="woman_title_bg">
-    <h1 class="woman_title_heading" *ngFor="let heading of headings">{{heading.heading}}</h1>
-    <p class="woman_title_paragraph" *ngFor="let paragraph of paragraphs">{{paragraph.paragraph}}</p>
-  </div> -->
+  <div class="woman_title_bg">
+    <h1 class="woman_title_heading" *ngIf="textCollection">
+      {{ textCollection[0].category === 'women' ? textCollection[0].womenTitleHeading :
+      textCollection[0].menTitleHeading}}
+    </h1>
+    <p class="woman_title_paragraph" *ngIf="textCollection">
+      {{textCollection[0].category === 'women' ?
+      textCollection[0].womenTitleParagraph :
+      textCollection[0].menTitleParagraph }}
+    </p>
+  </div>
 </div>
-<div class="shop_container">
-  <div class="shop_main_filter"></div>
-  <app-product-card></app-product-card>
+
+<div class=" shop_container">
+  <div class="shop_main_content">
+    <div class="shop_main_filter"></div>
+    <!-- <div class="row">
+    <div class="col-sm-4">
+      <label>Filter Name</label>
+      <input [(ngModel)]="Name">
+      <button type="button" (click)="onDesignerFilter()">Search</button>
+
+      <label> Sort by</label>
+      <select [(ngModel)]="sortByParam">
+        <option value="designerName">Designer</option>
+        <option value="price">Price</option>
+      </select>
+      <button type="button" (click)="onSortDirection()">Sort</button>
+
+    </div>
+  </div> -->
+    <div *ngFor="let product of products|filter:searchDesigner:'name'| sort:[sortByParam,sortDirection]">
+      <app-product-card [product]="product">
+      </app-product-card>
+    </div>
+  </div>
 </div>
 <div class="shop-end-paragraph">
-  <div class="paragraph-wrapper" *ngFor="let title of titles">
+  <div class="paragraph-wrapper" *ngFor="let text of textCollection">
     <div class="first-parahraph">
-      <h1>{{title.heading}}</h1>
-      <p>{{title.paragraph}}</p>
+      <h1>{{text.heading}}</h1>
+      <p>{{text.paragraph}}</p>
     </div>
   </div>
 </div>
