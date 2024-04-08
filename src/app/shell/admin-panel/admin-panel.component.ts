@@ -41,6 +41,9 @@ export class AdminPanelComponent implements OnInit {
       productName: ['', [Validators.required]],
       subCategoryType: ['', [Validators.required]],
     });
+    // this.productService.getAllDesigners().subscribe((data) => {
+    //   console.log(data);
+    // });
     this.productService.getProductTypes().subscribe((data) => {
       this.productTypes = data;
     });

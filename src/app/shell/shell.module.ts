@@ -9,9 +9,9 @@ import { ShellComponent } from './shell.component';
 import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
-import { ProductCardModule } from './product-card/product-card.module';
 import { ProductListComponent } from './product-list/product-list.component';
-
+import { ProductListModule } from './product-list/product-list.module';
+import { ProductCardModule } from './product-card/product-card.module';
 const routes: Routes = [
   {
     path: 'collection/shop/gender/:id',
@@ -19,13 +19,7 @@ const routes: Routes = [
   },
 ];
 @NgModule({
-  declarations: [
-    ShellComponent,
-    MainComponent,
-    HomeComponent,
-    FooterComponent,
-    ProductListComponent,
-  ],
+  declarations: [ShellComponent, MainComponent, HomeComponent, FooterComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -33,7 +27,9 @@ const routes: Routes = [
     LoginModule,
     HeaderModule,
     AdminModule,
+    ProductListModule,
     ProductCardModule,
+
     RouterModule.forChild(routes),
   ],
   exports: [ShellComponent],

@@ -36,8 +36,23 @@ export class HomeProductsService {
 
   // get products by gender
 
+  getAllProducts(gender: number): Observable<Product[]> {
+    return this.http.get<Product[]>(
+      `${this.baseApiUrl}/api/Product/list/gender/${+gender.toString()}`
+    );
+  }
+
+  //get designers
+  getAllDesigners(): Observable<string[]> {
+    return this.http.get<string[]>(
+      `${this.baseApiUrl}/api/DesignerName/designers`
+    );
+  }
+
+  // get products by gender
+
   getProductByGender(id: any) {
-    return this.http.get<Product>(
+    return this.http.get<Product[]>(
       `${this.baseApiUrl}/api/Product/list/gender/${id}`
     );
   }

@@ -1,25 +1,37 @@
 <!-- <div class="home-cont-title">
   <h4>new in</h4>
 </div> -->
-<div class="shop_container">
-  <div class="shop_main_content">
-    <div class="product" *ngFor="let product of products">
-      <div class="product-img">
-        <a [routerLink]="['/products', product.id]">
-          <img src="{{product.photo}}" alt="">
-        </a>
-      </div>
-      <div class="product-details" *ngIf="product">
-        <p class="designer-name">{{product.designer}}</p>
-        <h2 class="product-name">{{product.name}}</h2>
-        <p class="price">{{product.price | currency}}</p>
-      </div>
-      <div class="cart_btn">
-        <button>Add To Cart</button>
-        <button>QUICKSHOP</button>
-      </div>
-    </div>
+<div class="product">
+  <div class="product-img">
+    <a [routerLink]="['/products', product.id]">
+      <img src="{{product.photo}}" alt="">
+    </a>
+  </div>
+  <div class="product-details" *ngIf="product">
+    <p class="designer-name">{{product.designer}}</p>
+    <h2 class="product-name">{{product.name}}</h2>
+    <p class="price">{{product.price | currency}}</p>
+  </div>
+  <div class="cart_btn">
+    <button>Add To Cart</button>
+    <button>QUICKSHOP</button>
   </div>
 </div>
+<!-- <div class="product">
+  <div class="product-img">
+    <a [routerLink]="['/products', product.id]">
+      <img src="{{product.photo}}" alt="">
+    </a>
+  </div>
+  <div class="product-details" *ngIf="product">
+    <p class="designer-name">{{product.designer}}</p>
+    <h2 class="product-name">{{product.name}}</h2>
+    <p class="price">{{product.price | currency}}</p>
+  </div>
+  <div class="cart_btn">
+    <button>Add To Cart</button>
+    <button>QUICKSHOP</button>
+  </div>
+</div> -->
 <!-- <div class="view-all"><a [routerLink]="['/shop']" [queryParams]="{ gender: 'woman' }">view all</a>
 </div> -->

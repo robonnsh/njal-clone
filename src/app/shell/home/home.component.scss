@@ -9,6 +9,25 @@
   padding-top: 300px;
 }
 
+.home-cont-title {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  border-top: 1px solid black;
+}
+
+.home-cont-title h4 {
+  font-family: Avenir-regular;
+  margin-top: 40px;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+  font-weight: lighter;
+  opacity: 0.5;
+}
+
 .left-wrapper-bg,
 .right-wrapper-bg {
   width: 50vw;
@@ -52,6 +71,7 @@ a:hover {
   transition: 0.3s ease-in-out;
   color: white;
 }
+
 .home-content {
   margin: 50px auto;
 }
