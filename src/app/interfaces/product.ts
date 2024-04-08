@@ -4,11 +4,11 @@ import { Photo } from './photo';
 export class Product implements IProductBase {
   id!: number;
   gender!: number;
+  designer!: string;
   name!: string;
   productType!: string;
   subCategoryType!: string;
   price!: number;
-  designer!: string;
   photo?: string;
   description!: string;
   photos!: Photo[];
